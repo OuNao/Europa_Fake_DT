@@ -203,7 +203,7 @@ tsp_reset_out:
 static void synaptics_ts_work_func(struct work_struct *work)
 {
 	int ret=0;
-	uint8_t buf[74];
+	uint8_t buf[3];
 	uint8_t i2c_addr = 0x02;
 	uint16_t x=0;
 	uint16_t y=0;
@@ -594,7 +594,7 @@ static int synaptics_ts_probe(
 
 	HW_ver = buf[1];
 	printk(KERN_INFO "synaptics_ts_probe: Manufacturer ID: %x, HW ver=%d\n", buf[0], HW_ver);
-#if 1
+#if 0
 	if ( ( 0x00 < buf[2]) && (buf[2] < 0x08) )
 	{
 		printk("[TSP] %s, ver SW=%x\n", __func__ , buf[2] );
